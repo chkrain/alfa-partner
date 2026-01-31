@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Свой в альфе | Черепанова Алсу</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="img/emoji-chart_increasing.ico">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --alpha-red: #ef3124;
+        --alpha-dark: #1e1e1e;
+        --alpha-gray: #f5f5f7;
+        --alpha-light: #fff;
+        --text-dark: #333;
+        --text-light: #666;
+        --card-shadow: 0 8px 24px rgba(239, 49, 36, 0.08);
+        --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-dark);
+        line-height: 1.6;
+        background-color: var(--alpha-light);
+        overflow-x: hidden;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      .alpha-header {
+        background: linear-gradient(135deg, var(--alpha-dark) 0%, #2a2a2a 100%);
+        color: white;
+        padding: 20px 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .alpha-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          var(--alpha-red) 100%
+        );
+        opacity: 0.1;
+      }
+      .bank-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 30px;
+      }
+      .bank-logo-icon {
+        width: 40px;
+        height: 40px;
+        background-color: var(--alpha-red);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 20px;
+      }
+      .bank-logo-text {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 700;
+        font-size: 1.8rem;
+        letter-spacing: -0.5px;
+      }
+      .alpha-red {
+        color: var(--alpha-red);
+      }
+      .header-content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 50px;
+        padding: 40px 0;
+        position: relative;
+        z-index: 1;
+      }
+      .partner-photo {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 5px solid rgba(239, 49, 36, 0.3);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        flex-shrink: 0;
+        background-color: var(--alpha-gray);
+      }
+      .partner-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .partner-info {
+        flex: 1;
+        min-width: 300px;
+      }
+      .partner-name {
+        font-family: "Open Sans", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: white;
+      }
+      .partner-title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 25px;
+        color: rgba(255, 255, 255, 0.9);
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+      }
+      .partner-title::after {
+        content: "";
+        position: absolute;
+        width: 60px;
+        height: 3px;
+        background-color: var(--alpha-red);
+        bottom: 0;
+        left: 0;
+      }
+      .partner-description {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin-bottom: 30px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .contacts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 25px;
+      }
+      .contact-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+        text-decoration: none;
+        padding: 12px 24px;
+        background-color: rgba(239, 49, 36, 0.15);
+        border-radius: 10px;
+        transition: var(--transition);
+        font-weight: 500;
+        border: 1px solid rgba(239, 49, 36, 0.3);
+      }
+      .contact-link:hover {
+        background-color: rgba(239, 49, 36, 0.25);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(239, 49, 36, 0.2);
+      }
+      .contact-link i {
+        font-size: 1.2rem;
+      }
+      .content-section {
+        padding: 60px 0;
+        background-color: var(--alpha-gray);
+        min-height: 70vh;
+      }
+      .section-title {
+        font-family: "Open Sans", sans-serif;
+        font-size: 2.2rem;
+        text-align: center;
+        margin-bottom: 50px;
+        color: var(--alpha-dark);
+        position: relative;
+      }
+      .section-title::after {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 4px;
+        background-color: var(--alpha-red);
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+      .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+      }
+      .alpha-card-link {
+        text-decoration: none;
+        display: block;
+        height: 100%;
+        transition: var(--transition);
+      }
+      .alpha-card-link:hover .alpha-card {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(239, 49, 36, 0.15);
+      }
+      .alpha-card {
+        background-color: white;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--card-shadow);
+        transition: var(--transition);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        border-top: 4px solid var(--alpha-red);
+      }
+      .card-image {
+        height: 180px;
+        overflow: hidden;
+        position: relative;
+      }
+      .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+      .alpha-card-link:hover .card-image img {
+        transform: scale(1.05);
+      }
+      .card-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: var(--alpha-red);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 2;
+      }
+      .card-content {
+        padding: 25px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-title {
+        font-family: "Open Sans", sans-serif;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: var(--alpha-dark);
+        line-height: 1.3;
+      }
+      .card-subtitle {
+        color: var(--text-light);
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+        font-weight: 500;
+      }
+      .card-features {
+        margin: 15px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .card-feature {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.9rem;
+        color: var(--text-light);
+      }
+      .card-feature i {
+        color: var(--alpha-red);
+        font-size: 0.8rem;
+      }
+      .card-description {
+        color: var(--text-light);
+        margin-bottom: 20px;
+        flex-grow: 1;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      .card-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+      .card-tag {
+        background-color: rgba(239, 49, 36, 0.1);
+        color: var(--alpha-red);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+      .card-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background-color: var(--alpha-red);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: var(--transition);
+        margin-top: auto;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+      }
+      .card-button:hover {
+        background-color: #d6281c;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(239, 49, 36, 0.3);
+      }
+      footer {
+        background-color: var(--alpha-dark);
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+      }
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .footer-text {
+        opacity: 0.7;
+        font-size: 0.95rem;
+        max-width: 600px;
+        line-height: 1.7;
+      }
+      .footer-contacts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      .footer-link {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .footer-link:hover {
+        color: var(--alpha-red);
+      }
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          text-align: center;
+          gap: 30px;
+        }
+        .partner-name {
+          font-size: 2rem;
+        }
+        .partner-title::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .contacts {
+          justify-content: center;
+        }
+        .section-title {
+          font-size: 1.8rem;
+        }
+        .cards-container {
+          grid-template-columns: 1fr;
+          max-width: 500px;
+          margin: 0 auto;
+        }
+      }
+      @media (max-width: 480px) {
+        .contact-link {
+          width: 100%;
+          justify-content: center;
+        }
+        .partner-photo {
+          width: 180px;
+          height: 180px;
+        }
+        .bank-logo-text {
+          font-size: 1.5rem;
+        }
+        .card-image {
+          height: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="alpha-header">
+      <div class="container">
+        <div class="bank-logo">
+          <div class="bank-logo-icon">α</div>
+          <div class="bank-logo-text">
+            Свой в <span class="alpha-red">Альфе</span>
+          </div>
+        </div>
+
+        <div class="header-content">
+          <div class="partner-photo">
+            <img src="img/alsu.jpg" alt="Фото партнера Альфа-Банка" />
+          </div>
+          <div class="partner-info">
+            <h1 class="partner-name">Алсу Черепанова</h1>
+            <p class="partner-title">
+              Партнер Альфа-Банка | свой в Альфе
+            </p>
+            <p class="partner-description">
+              Официальный партнер Альфа-Банка с 2025 года. Помогаю клиентам достигать финансовых целей
+              через банковские продукты.
+            </p>
+
+            <div class="contacts">
+              <a
+                href="https://t.me/alsuyo"
+                class="contact-link"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Telegram
+              </a>
+              <a
+                href="#"
+                class="contact-link"
+                target="_blank"
+              >
+                <i class="fab fa-vk"></i> ВКонтакте
+              </a>
+              <a href="mailto:alsu1214@mail.ru" class="contact-link">
+                <i class="fas fa-envelope"></i> Email
+              </a>  
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content-section">
+      <div class="container">
+        <div class="cards-container">
+          <a
+            href="https://alfabank.ru/debet"
+            class="alpha-card-link"
+            target="_blank"
+          >
+            <div class="alpha-card">
+              <div class="card-image">
+                <img src="img/1.png" alt="Альфа Карта" />
+              </div>
+              <div class="card-content">
+                <h3 class="card-title">
+                  Название
+                </h3>
+                <p class="card-subtitle">
+                  Инфа
+                </p>
+
+                <div class="card-button">
+                  <span>Получить продукт</span>
+                  <i class="fas fa-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <div class="bank-logo-icon">α</div>
+            <div class="bank-logo-text">
+              Партнер Альфа<span style="color: #ef3124">-Банка</span>
+            </div>
+          </div>
+          <p class="footer-text">
+            Официальный партнер Альфа-Банка. Проект "Свой в Альфе".
+          </p>
+
+          <div class="footer-contacts">
+            <a
+              href=""
+              class="footer-link"
+              target="_blank"
+            >
+              <i class="fab fa-telegram"></i> Telegram
+            </a>
+            <a
+              href="#"
+              class="footer-link"
+              target="_blank"
+            >
+              <i class="fab fa-vk"></i> ВКонтакте
+            </a>
+            <a href="mailto:alsu1214@mail.ru" class="footer-link">
+              <i class="fas fa-envelope"></i> Email
+            </a>
+          </div>
+
+          <p class="footer-text" style="margin-top: 20px; font-size: 0.85rem">
+            © 2026 Партнер Альфа-Банка Черепанова Алсу.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
